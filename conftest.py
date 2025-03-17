@@ -2,17 +2,18 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
+import os
 
-# LambdaTest credentials
-LT_USERNAME = "YOUR_LAMBDATEST_USERNAME"
-LT_ACCESS_KEY = "YOUR_LAMBDATEST_ACCESS_KEY"
+# LambdaTest credentials (retrieve from environment variables)
+LT_USERNAME = "neha_agarwal1"
+LT_ACCESS_KEY = "LT_uBaeQgAiFuphfA0mH8nI0eQUYphdK58o7W8yIbjqwYkQlcu"
 
 @pytest.fixture(scope="function", params=["chrome", "firefox"])
 def driver(request):
     browser = request.param
     desired_caps = {
-        "build": "LambdaTest Flow Test",
-        "name": f"Flow Test on {browser}",
+        "build": "LambdaTest Checkbox Test",
+        "name": f"Checkbox Test on {browser}",
         "platform": "Windows 10",
         "browserName": browser,
         "version": "latest",
