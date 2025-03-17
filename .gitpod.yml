@@ -1,3 +1,7 @@
 tasks:
-  - init: pip install -r requirements.txt
-  - command: pytest -n auto tests/test_lambdatest_flow.py
+  - name: Setup and Run LambdaTest Checkbox Test
+    init: pip install -r requirements.txt
+    env:
+      LT_USERNAME: ${{ secrets.LT_USERNAME }}
+      LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+    command: pytest -n auto tests/test_lambdatest_checkbox.py
