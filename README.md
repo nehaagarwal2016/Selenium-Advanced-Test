@@ -1,6 +1,6 @@
-# LambdaTest Website Flow Test
+# LambdaTest Checkbox Interaction Test
 
-This project contains a Selenium test written in Python using pytest to automate a specific flow on the LambdaTest website. The test is configured to run in parallel on LambdaTest Cloud Selenium Grid.
+This project contains a Selenium test written in Python using pytest, following the Page Object Model, to interact with a checkbox on the LambdaTest website. The test is configured to run in parallel on LambdaTest Cloud Selenium Grid.
 
 ## Prerequisites
 
@@ -17,8 +17,7 @@ This project contains a Selenium test written in Python using pytest to automate
 ## Configuration
 
 1.  **LambdaTest Credentials:**
-    * Open the `conftest.py` file.
-    * Replace `"YOUR_LAMBDATEST_USERNAME"` and `"YOUR_LAMBDATEST_ACCESS_KEY"` with your actual LambdaTest credentials.
+    * Ensure you have set `LT_USERNAME` and `LT_ACCESS_KEY` as Gitpod secrets (Workspace Settings -> Secrets). The `conftest.py` will automatically retrieve them.
 
 ## Running the Test on Gitpod (LambdaTest Cloud)
 
@@ -32,24 +31,24 @@ This project contains a Selenium test written in Python using pytest to automate
 
 * The console output in Gitpod will show the progress of the tests and any assertions.
 * The LambdaTest Session IDs for each parallel test (for Chrome and Firefox) will be printed in the console after the drivers are quit.
-* You can view detailed test results, including network logs, video recordings, and screenshots, on the LambdaTest platform by navigating to the Automation section and searching for your build name ("LambdaTest Flow Test") or test name.
+* You can view detailed test results, including network logs, video recordings, and screenshots, on the LambdaTest platform by navigating to the Automation section and searching for your build name ("LambdaTest Checkbox Test") or test name.
 
 ## Test Details
 
-The `tests/test_lambdatest_flow.py` file contains a single test case:
+The project follows the Page Object Model:
 
-* `test_lambdatest_website_flow(driver)`:
-    * Navigates to `https://www.lambdatest.com`.
-    * Waits for all DOM elements to be available.
-    * Scrolls to and clicks the 'Explore all Integrations' link, which opens in a new tab.
-    * Verifies the URL of the new tab.
-    * Scrolls to the 'Codeless Automation' section on the integrations page.
-    * Clicks the 'INTEGRATE TESTING WHIZ WITH LAMBDATEST' link.
-    * Verifies the title of the TestingWhiz integration page.
-    * Closes the TestingWhiz integration tab.
-    * Navigates to `https://www.lambdatest.com/blog` in the original tab.
-    * Clicks the 'Community' link and verifies the URL.
-    * Closes the browser.
+* **`page_objects/lambdatest_home_page.py`:** Defines the `LambdaTestHomePage` class, which encapsulates the locators and interactions for the LambdaTest homepage elements related to the checkbox.
+* **`tests/test_lambdatest_checkbox.py`:** Contains the test case `test_checkbox_interaction`, which uses the `LambdaTestHomePage` object to perform the test steps.
+
+The test case:
+
+* Navigates to `https://www.lambdatest.com`.
+* Waits for the DOM to be ready.
+* Locates the parent, input, and checkmark elements of the weekday checkbox.
+* Checks the initial state of the checkbox.
+* Clicks the checkmark to toggle the checkbox.
+* Waits for the checkbox state to change.
+* Verifies that the final state is different from the initial state.
 
 ## Parallel Execution
 
