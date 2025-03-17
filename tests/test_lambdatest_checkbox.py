@@ -1,4 +1,4 @@
-from page_objects.lambdatest_home_page import LambdaTestHomePage
+from pages.lambdatest_home_page import LambdaTestHomePage
 
 def test_checkbox_interaction(driver):
     home_page = LambdaTestHomePage(driver)
