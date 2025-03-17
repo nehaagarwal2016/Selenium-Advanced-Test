@@ -1,4 +1,3 @@
-# Selenium-Advanced-Test
 # LambdaTest Website Flow Test
 
 This project contains a Selenium test written in Python using pytest to automate a specific flow on the LambdaTest website. The test is configured to run in parallel on LambdaTest Cloud Selenium Grid.
