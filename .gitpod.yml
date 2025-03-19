@@ -4,4 +4,4 @@ tasks:
     env:
       LT_USERNAME: ${{ secrets.LT_USERNAME }}
       LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-    command: pytest -n auto tests/test_lambdatest_checkbox.py
+    command: pytest -n auto tests/test_lambdatest.py
